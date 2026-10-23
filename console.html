@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Kelola token dan dokumentasi API EWS."
+    />
+    <title>API Console | EWS</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="console.js" defer></script>
+  </head>
+  <body class="console-body">
+    <div class="console-layout">
+      <aside class="console-sidebar" aria-label="Navigasi API Console">
+        <a class="console-brand" href="index.html" aria-label="EWS beranda">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 32 32" fill="none">
+              <path d="M5 23.5 12.2 8l4.1 9 2.8-5.7L27 23.5H5Z" />
+              <path d="M11.1 23.5 16 13l4.9 10.5" />
+            </svg>
+          </span>
+          <span>EWS<span class="brand-period">.</span></span>
+        </a>
+
+        <p class="sidebar-label">DEVELOPER TOOLS</p>
+        <nav class="console-nav">
+          <a class="console-nav-link is-active" href="#generate-token" aria-current="page">
+            <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
+              <circle cx="7.1" cy="12.9" r="3.4" />
+              <path d="m9.5 10.5 6.8-6.8 1.7 1.7-1.7 1.7-1.4-1.4-1.8 1.8 1.4 1.4-1.6 1.6" />
+            </svg>
+            Generate Token
+          </a>
+          <a class="console-nav-link" href="#swagger-api">
+            <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
+              <path d="M5 2.8h6.5l3.5 3.5v10.9H5V2.8Z" />
+              <path d="M11.5 2.8v3.5H15M7.5 10h5M7.5 13h5" />
+            </svg>
+            Swagger API
+            <span class="nav-status">NANTI</span>
+          </a>
+        </nav>
+
+        <div class="sidebar-bottom">
+          <span class="sidebar-note-icon" aria-hidden="true">
+            <svg viewBox="0 0 20 20" fill="none">
+              <circle cx="10" cy="10" r="7.2" />
+              <path d="M10 9v4M10 6.5h.01" />
+            </svg>
+          </span>
+          <p>Console API dalam tahap persiapan.</p>
+        </div>
+      </aside>
+
+      <main class="console-main">
+        <header class="console-topbar">
+          <div class="breadcrumb">
+            <span>Developer tools</span>
+            <span aria-hidden="true">/</span>
+            <strong>API Console</strong>
+          </div>
+          <a class="console-back-link" href="login.html">
+            <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
+              <path d="M12.5 4.5 7 10l5.5 5.5M7.5 10h9" />
+            </svg>
+            Kembali ke login
+          </a>
+        </header>
+
+        <div class="console-content">
+          <section class="console-intro" aria-labelledby="console-title">
+            <p class="eyebrow">EWS DEVELOPER PORTAL</p>
+            <h1 id="console-title">API Console</h1>
+            <p>Kelola akses integrasi dan lihat dokumentasi API EWS.</p>
+          </section>
+
+          <section class="console-card" id="generate-token" aria-labelledby="token-title">
+            <div class="console-card-heading">
+              <span class="console-card-icon token-icon" aria-hidden="true">
+                <svg viewBox="0 0 20 20" fill="none">
+                  <circle cx="7.1" cy="12.9" r="3.4" />
+                  <path d="m9.5 10.5 6.8-6.8 1.7 1.7-1.7 1.7-1.4-1.4-1.8 1.8 1.4 1.4-1.6 1.6" />
+                </svg>
+              </span>
+              <div>
+                <h2 id="token-title">Generate Token</h2>
+                <p>Buat kredensial untuk aplikasi yang terhubung ke EWS.</p>
+              </div>
+            </div>
+
+            <div class="notice-banner" role="note">
+              <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                <circle cx="10" cy="10" r="7.2" />
+                <path d="M10 9v4M10 6.5h.01" />
+              </svg>
+              Token baru dapat dibuat setelah layanan backend tersedia. Jangan
+              bagikan token rahasia kepada siapa pun.
+            </div>
+
+            <form id="token-form" class="token-form">
+              <div class="token-field">
+                <label for="token-name">Nama token</label>
+                <input
+                  id="token-name"
+                  name="token_name"
+                  type="text"
+                  placeholder="Contoh: Integrasi dashboard"
+                  maxlength="80"
+                  required
+                />
+                <span class="token-field-hint">Gunakan nama yang mudah dikenali.</span>
+              </div>
+
+              <div class="token-field">
+                <label for="token-expiry">Masa berlaku</label>
+                <select id="token-expiry" name="expires_in" required>
+                  <option value="30">30 hari</option>
+                  <option value="90">90 hari</option>
+                  <option value="180">180 hari</option>
+                  <option value="365">1 tahun</option>
+                </select>
+                <span class="token-field-hint">Token sebaiknya memiliki masa berlaku.</span>
+              </div>
+
+              <p class="form-message console-message" id="token-message" role="status" aria-live="polite" hidden></p>
+              <button class="submit-button generate-button" type="submit">
+                <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                  <path d="M10 4v12M4 10h12" />
+                </svg>
+                Generate token
+              </button>
+            </form>
+          </section>
+
+          <section class="console-card swagger-card" id="swagger-api" aria-labelledby="swagger-title">
+            <div class="console-card-heading">
+              <span class="console-card-icon swagger-icon" aria-hidden="true">
+                <svg viewBox="0 0 20 20" fill="none">
+                  <path d="M5 2.8h6.5l3.5 3.5v10.9H5V2.8Z" />
+                  <path d="M11.5 2.8v3.5H15M7.5 10h5M7.5 13h5" />
+                </svg>
+              </span>
+              <div>
+                <h2 id="swagger-title">Swagger API</h2>
+                <p>Dokumentasi endpoint dan skema request/response.</p>
+              </div>
+              <span class="coming-soon">SEGERA HADIR</span>
+            </div>
+            <div class="swagger-placeholder">
+              <span class="swagger-placeholder-icon" aria-hidden="true">
+                <svg viewBox="0 0 32 32" fill="none">
+                  <path d="M8 4.5h10l6 6v17H8v-23Z" />
+                  <path d="M18 4.5v6h6M12 16h8M12 20h8M12 24h5" />
+                </svg>
+              </span>
+              <div>
+                <h3>Dokumentasi API sedang disiapkan</h3>
+                <p>
+                  Swagger UI akan tersedia setelah spesifikasi OpenAPI dan
+                  endpoint EWS siap.
+                </p>
+              </div>
+            </div>
+          </section>
+
+          <footer class="console-footer">© 2026 EWS. Semua hak dilindungi.</footer>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>
