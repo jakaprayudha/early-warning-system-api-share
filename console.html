@@ -59,7 +59,7 @@
           <div class="breadcrumb">
             <span>Developer tools</span>
             <span aria-hidden="true">/</span>
-            <strong>API Console</strong>
+            <strong id="console-breadcrumb">Generate Token</strong>
           </div>
           <a class="console-back-link" href="login.html">
             <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
@@ -72,8 +72,8 @@
         <div class="console-content">
           <section class="console-intro" aria-labelledby="console-title">
             <p class="eyebrow">EWS DEVELOPER PORTAL</p>
-            <h1 id="console-title">API Console</h1>
-            <p>Kelola akses integrasi dan lihat dokumentasi API EWS.</p>
+            <h1 id="console-title">Generate Token</h1>
+            <p id="console-description">Siapkan token akses untuk integrasi aplikasi Anda dengan EWS.</p>
           </section>
 
           <section class="console-card" id="generate-token" aria-labelledby="token-title">
@@ -134,7 +134,7 @@
             </form>
           </section>
 
-          <section class="console-card swagger-card" id="swagger-api" aria-labelledby="swagger-title">
+          <section class="console-card swagger-card" id="swagger-api" aria-labelledby="swagger-title" hidden>
             <div class="console-card-heading">
               <span class="console-card-icon swagger-icon" aria-hidden="true">
                 <svg viewBox="0 0 20 20" fill="none">
@@ -153,9 +153,9 @@
                 <circle cx="10" cy="10" r="7.2" />
                 <path d="M10 9v4M10 6.5h.01" />
               </svg>
-              Endpoint saat ini menggunakan HTTP tanpa enkripsi. Jangan kirim
-              token rahasia langsung dari browser; gunakan backend dengan HTTPS
-              sebagai perantara.
+              Endpoint menggunakan HTTP tanpa enkripsi. Pengujian langsung
+              dapat mengekspos token di jaringan. Gunakan token khusus pengujian,
+              bukan token produksi. Untuk produksi, gunakan layanan API HTTPS.
             </div>
 
             <div class="api-endpoints">
@@ -166,6 +166,13 @@
                 </div>
                 <p>Mengambil daftar ID EWS.</p>
                 <span class="endpoint-name">Operasi: getIdEWS</span>
+                <button class="submit-button generate-button api-test-button" id="test-ews" type="button">
+                  Ambil daftar EWS
+                </button>
+                <div class="api-result" id="ews-result" aria-busy="false" hidden>
+                  <p class="api-result-status" role="status" aria-live="polite"></p>
+                  <pre class="api-code" tabindex="0" aria-label="Respons daftar EWS"><code></code></pre>
+                </div>
               </article>
 
               <article class="api-endpoint">
@@ -178,14 +185,46 @@
                 <h3>Request body</h3>
                 <pre class="api-code"><code>{
   "EWSid": "26WDS07C",
-  "token": "&lt;ISI_TOKEN_DI_BACKEND&gt;",
+  "token": "&lt;TOKEN_PENGUJIAN_ANDA&gt;",
   "datefrom": "2026-10-09",
   "dateto": "2026-10-09"
 }</code></pre>
+                <h3>Uji pengambilan data sensor</h3>
+                <form id="sensor-form" class="token-form" autocomplete="off">
+                  <div class="token-field">
+                    <label for="ews-id">ID EWS</label>
+                    <input id="ews-id" name="EWSid" placeholder="26WDS07C" required />
+                  </div>
+                  <div class="token-field">
+                    <label for="api-token">Token pengujian</label>
+                    <input id="api-token" name="token" type="password" autocomplete="off" required aria-describedby="api-token-hint" />
+                    <span id="api-token-hint" class="token-field-hint">Tidak disimpan oleh aplikasi. Isi token Anda sendiri.</span>
+                  </div>
+                  <div class="token-field">
+                    <label for="date-from">Tanggal mulai</label>
+                    <input id="date-from" name="datefrom" type="date" value="2026-10-09" required />
+                  </div>
+                  <div class="token-field">
+                    <label for="date-to">Tanggal akhir</label>
+                    <input id="date-to" name="dateto" type="date" value="2026-10-09" required />
+                  </div>
+                  <label class="terms-check api-consent" for="http-consent">
+                    <input id="http-consent" type="checkbox" required />
+                    <span>Saya memahami token pengujian akan dikirim lewat HTTP tanpa enkripsi.</span>
+                  </label>
+                  <button class="submit-button generate-button" type="submit">Ambil data sensor</button>
+                </form>
+                <div class="api-result" id="sensor-result" aria-busy="false" hidden>
+                  <p class="api-result-status" role="status" aria-live="polite"></p>
+                  <pre class="api-code" tabindex="0" aria-label="Respons data sensor"><code></code></pre>
+                </div>
               </article>
             </div>
             <p class="swagger-footnote">
-              Dokumentasi ini merangkum endpoint yang tersedia. Swagger UI
+              Respons API ditampilkan apa adanya dalam format JSON atau teks.
+              Jika browser memblokir CORS atau mixed content (HTTPS ke HTTP),
+              server API perlu dikonfigurasi atau diakses melalui backend.
+              Swagger UI
               interaktif memerlukan spesifikasi OpenAPI serta contoh respons
               dari layanan.
             </p>

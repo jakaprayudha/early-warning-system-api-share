@@ -986,6 +986,36 @@ a:focus-visible {
   font: inherit;
 }
 
+.api-test-button,
+.api-result {
+  margin-top: 15px;
+}
+
+.api-result .api-code {
+  max-height: 420px;
+}
+
+.api-result-status {
+  color: var(--green);
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+.api-result[data-state="error"] .api-result-status {
+  color: #a13931;
+}
+
+.api-consent {
+  grid-column: 1 / -1;
+  margin: 0;
+}
+
+.submit-button:disabled {
+  opacity: 0.6;
+  cursor: wait;
+  transform: none;
+}
+
 .swagger-footnote {
   margin: 12px 1px 0;
   color: #8b9690;
