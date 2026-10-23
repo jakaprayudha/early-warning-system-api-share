@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Buat akun untuk mengakses layanan EWS."
+    />
+    <title>Daftar akun | EWS</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <main class="page-shell">
+      <section class="welcome-panel" aria-labelledby="welcome-title">
+        <a class="brand" href="#" aria-label="EWS beranda">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 32 32" fill="none">
+              <path d="M5 23.5 12.2 8l4.1 9 2.8-5.7L27 23.5H5Z" />
+              <path d="M11.1 23.5 16 13l4.9 10.5" />
+            </svg>
+          </span>
+          <span>EWS<span class="brand-period">.</span></span>
+        </a>
+
+        <div class="welcome-copy">
+          <span class="eyebrow"><span></span> EARLY WARNING SYSTEM</span>
+          <h1 id="welcome-title">Tetap selangkah lebih siap.</h1>
+          <p>
+            Buat akun EWS Anda untuk mendapatkan akses ke informasi dan layanan
+            dalam satu tempat.
+          </p>
+        </div>
+
+        <div class="panel-footer">
+          <span class="signal-icon" aria-hidden="true">
+            <svg viewBox="0 0 20 20" fill="none">
+              <path d="M2.5 7.4a11 11 0 0 1 15 0M5.4 10.3a6.8 6.8 0 0 1 9.2 0M8.2 13.1a2.7 2.7 0 0 1 3.6 0M10 16h.01" />
+            </svg>
+          </span>
+          <span>Informasi terpusat, lebih mudah diakses.</span>
+        </div>
+      </section>
+
+      <section class="form-panel" aria-labelledby="form-title">
+        <div class="form-wrap">
+          <div class="form-heading">
+            <span class="mobile-brand">EWS<span class="brand-period">.</span></span>
+            <p class="eyebrow">MULAI SEKARANG</p>
+            <h2 id="form-title">Buat akun baru</h2>
+            <p class="form-subtitle">Isi data berikut untuk mendaftar.</p>
+          </div>
+
+          <form id="register-form">
+            <label for="full-name">Nama lengkap</label>
+            <div class="input-wrap">
+              <svg class="field-icon" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                <circle cx="10" cy="6.2" r="3.1" />
+                <path d="M3.8 17c.4-3.1 2.8-5 6.2-5s5.8 1.9 6.2 5H3.8Z" />
+              </svg>
+              <input
+                id="full-name"
+                name="full_name"
+                type="text"
+                autocomplete="name"
+                placeholder="Contoh: Nadia Putri"
+                minlength="2"
+                maxlength="100"
+                required
+              />
+            </div>
+
+            <label for="email">Alamat email</label>
+            <div class="input-wrap">
+              <svg class="field-icon" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                <rect x="2.8" y="4.3" width="14.4" height="11.4" rx="2" />
+                <path d="m3.7 6 6.3 4.8L16.3 6" />
+              </svg>
+              <input
+                id="email"
+                name="email"
+                type="email"
+                autocomplete="email"
+                placeholder="nama@email.com"
+                maxlength="254"
+                required
+              />
+            </div>
+
+            <label for="password">Kata sandi</label>
+            <div class="input-wrap">
+              <svg class="field-icon" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                <rect x="3.8" y="8.3" width="12.4" height="9" rx="2" />
+                <path d="M6.5 8.3V6a3.5 3.5 0 0 1 7 0v2.3M10 11.7v2.2" />
+              </svg>
+              <input
+                id="password"
+                name="password"
+                type="password"
+                autocomplete="new-password"
+                placeholder="Minimal 8 karakter"
+                minlength="8"
+                maxlength="128"
+                aria-describedby="password-hint"
+                required
+              />
+              <button
+                class="password-toggle"
+                type="button"
+                aria-label="Tampilkan kata sandi"
+                aria-pressed="false"
+                data-password-toggle="password"
+              >
+                <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                  <path d="M2.2 10s2.8-5 7.8-5 7.8 5 7.8 5-2.8 5-7.8 5-7.8-5-7.8-5Z" />
+                  <circle cx="10" cy="10" r="2.1" />
+                </svg>
+              </button>
+            </div>
+            <p class="field-hint" id="password-hint">Gunakan minimal 8 karakter.</p>
+
+            <label for="confirm-password">Konfirmasi kata sandi</label>
+            <div class="input-wrap">
+              <svg class="field-icon" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                <rect x="3.8" y="8.3" width="12.4" height="9" rx="2" />
+                <path d="M6.5 8.3V6a3.5 3.5 0 0 1 7 0v2.3M10 11.7v2.2" />
+              </svg>
+              <input
+                id="confirm-password"
+                name="confirm_password"
+                type="password"
+                autocomplete="new-password"
+                placeholder="Ulangi kata sandi"
+                minlength="8"
+                maxlength="128"
+                required
+              />
+              <button
+                class="password-toggle"
+                type="button"
+                aria-label="Tampilkan konfirmasi kata sandi"
+                aria-pressed="false"
+                data-password-toggle="confirm-password"
+              >
+                <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                  <path d="M2.2 10s2.8-5 7.8-5 7.8 5 7.8 5-2.8 5-7.8 5-7.8-5-7.8-5Z" />
+                  <circle cx="10" cy="10" r="2.1" />
+                </svg>
+              </button>
+            </div>
+
+            <label class="terms-check" for="terms">
+              <input id="terms" name="terms" type="checkbox" required />
+              <span>
+                Saya menyetujui <a href="#terms-note">syarat dan ketentuan</a>
+                yang berlaku.
+              </span>
+            </label>
+
+            <p class="form-message" id="form-message" role="status" aria-live="polite" hidden></p>
+            <button class="submit-button" type="submit">
+              Buat akun
+              <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                <path d="M4 10h12m-5-5 5 5-5 5" />
+              </svg>
+            </button>
+          </form>
+
+          <p class="login-prompt">
+            Sudah memiliki akun? <a href="#login">Masuk</a>
+          </p>
+          <p class="secure-note">
+            <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <rect x="3.2" y="6.8" width="9.6" height="7" rx="1.5" />
+              <path d="M5.4 6.8V4.9a2.6 2.6 0 0 1 5.2 0v1.9" />
+            </svg>
+            Data Anda terlindungi dan aman.
+          </p>
+        </div>
+        <p class="copyright">© 2026 EWS. Semua hak dilindungi.</p>
+      </section>
+    </main>
+  </body>
+</html>
