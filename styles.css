@@ -885,48 +885,111 @@ a:focus-visible {
   letter-spacing: 0.55px;
 }
 
-.swagger-placeholder {
+.api-security-notice {
   display: flex;
-  align-items: center;
-  gap: 15px;
-  margin-top: 19px;
-  padding: 18px;
-  border: 1px dashed #dfe7e2;
-  border-radius: 8px;
-  background: #fbfcfb;
+  align-items: flex-start;
+  gap: 9px;
+  margin: 19px 0 14px;
+  padding: 11px 12px;
+  border: 1px solid #f0dfd0;
+  border-radius: 7px;
+  color: #805d43;
+  background: #fff8f1;
+  font-size: 10px;
+  line-height: 1.6;
 }
 
-.swagger-placeholder-icon {
-  display: grid;
-  width: 42px;
-  height: 42px;
+.api-security-notice svg {
+  width: 16px;
   flex: 0 0 auto;
-  place-items: center;
-  border-radius: 9px;
-  color: #7b9185;
-  background: #eff4f0;
-}
-
-.swagger-placeholder-icon svg {
-  width: 25px;
-  stroke: currentColor;
+  margin-top: 1px;
+  stroke: #a8754e;
   stroke-linecap: round;
-  stroke-linejoin: round;
   stroke-width: 1.4;
 }
 
-.swagger-placeholder h3 {
-  margin: 0 0 5px;
-  color: #46564d;
-  font-size: 11px;
+.api-endpoints {
+  display: grid;
+  gap: 11px;
+}
+
+.api-endpoint {
+  padding: 14px;
+  border: 1px solid #e7ece9;
+  border-radius: 8px;
+  background: #fcfdfc;
+}
+
+.endpoint-title {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 9px;
+}
+
+.endpoint-title code {
+  overflow-wrap: anywhere;
+  color: #35483e;
+  font-size: 10px;
+}
+
+.method-badge {
+  min-width: 42px;
+  padding: 5px 7px;
+  border-radius: 4px;
+  text-align: center;
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 0.45px;
+}
+
+.method-get {
+  color: #176d53;
+  background: #e7f4ec;
+}
+
+.method-post {
+  color: #345d92;
+  background: #eaf1fb;
+}
+
+.api-endpoint > p {
+  margin: 9px 0 4px;
+  color: #75827a;
+  font-size: 10px;
+}
+
+.endpoint-name {
+  color: #9aa49e;
+  font-size: 9px;
+}
+
+.api-endpoint h3 {
+  margin: 15px 0 7px;
+  color: #526159;
+  font-size: 10px;
   font-weight: 600;
 }
 
-.swagger-placeholder p {
-  max-width: 480px;
+.api-code {
+  overflow-x: auto;
   margin: 0;
-  color: #87938c;
-  font-size: 10px;
+  padding: 12px 14px;
+  border: 1px solid #e7ece9;
+  border-radius: 6px;
+  color: #45564c;
+  background: #f5f8f6;
+  font: 10px/1.65 ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+.api-code code {
+  font: inherit;
+}
+
+.swagger-footnote {
+  margin: 12px 1px 0;
+  color: #8b9690;
+  font-size: 9px;
   line-height: 1.6;
 }
 
@@ -1030,8 +1093,7 @@ a:focus-visible {
     font-size: 7px;
   }
 
-  .swagger-placeholder {
-    align-items: flex-start;
+  .api-endpoint {
     padding: 13px;
   }
 }
